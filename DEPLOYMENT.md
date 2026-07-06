@@ -37,6 +37,7 @@ python manage.py migrate && python manage.py seed_search_documents && gunicorn c
 ```text
 DJANGO_SECRET_KEY=换成一段足够长的随机密钥
 DJANGO_DEBUG=false
+PYTHON_VERSION=3.13.5
 ALLOWED_HOSTS=你的后端域名.onrender.com
 CORS_ALLOWED_ORIGINS=https://你的前端域名.onrender.com
 CSRF_TRUSTED_ORIGINS=https://你的后端域名.onrender.com

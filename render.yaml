@@ -10,6 +10,8 @@ services:
     envVars:
       - key: DJANGO_DEBUG
         value: false
+      - key: PYTHON_VERSION
+        value: 3.13.5
       - key: DJANGO_SECRET_KEY
         sync: false
       - key: ALLOWED_HOSTS
