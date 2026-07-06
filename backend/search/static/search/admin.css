@@ -350,6 +350,130 @@ textarea {
   padding: 10px 12px;
 }
 
+body.login {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(15, 118, 110, 0.18), transparent 32%),
+    linear-gradient(135deg, #eef7f6 0%, #f8fbfc 48%, #eef4f7 100%);
+}
+
+.login #container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+.login #header {
+  background: linear-gradient(135deg, #123842, #1c6370);
+  border-radius: 12px 12px 0 0;
+  box-shadow: none;
+  justify-content: center;
+  min-height: 94px;
+  padding: 0 28px;
+}
+
+.login #branding h1,
+.login #branding h1 a:link,
+.login #branding h1 a:visited {
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.login #branding h1::after {
+  color: rgba(255, 255, 255, 0.78);
+  content: "内容与咨询管理";
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.login #content {
+  background: #ffffff;
+  border: 1px solid rgba(23, 32, 42, 0.08);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 30px 80px rgba(23, 32, 42, 0.14);
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 440px;
+  padding: 32px !important;
+  width: min(440px, 100%);
+}
+
+.login #content-main {
+  width: 100%;
+}
+
+.login .form-row {
+  border-bottom: 0;
+  padding: 0 0 18px;
+}
+
+.login .form-row label {
+  color: #465766;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.login .form-row input {
+  border: 1px solid #d6e2e6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  min-height: 46px;
+  padding: 0 14px;
+  width: 100%;
+}
+
+.login .form-row input:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.13);
+  outline: 0;
+}
+
+.login .submit-row {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.login .submit-row input[type="submit"] {
+  background: #0f766e;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  min-height: 46px;
+  padding: 13px 20px;
+  width: 100%;
+}
+
+.login .submit-row input[type="submit"]:hover {
+  background: #0b5f59;
+}
+
+.login .errornote {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  color: #be123c;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  padding: 12px 14px;
+}
+
+.login .password-reset-link {
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
   #header {
     padding: 0 22px;
