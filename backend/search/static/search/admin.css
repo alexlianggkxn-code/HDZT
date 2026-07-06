@@ -128,7 +128,7 @@ body.dashboard #branding {
 body.dashboard #branding h1,
 body.dashboard #branding h1 a:link,
 body.dashboard #branding h1 a:visited {
-  color: #0fb5a8;
+  color: #16b8ab;
   font-size: 25px;
   font-weight: 600;
 }
@@ -740,7 +740,9 @@ body.login {
   #changelist-filter h2 {
     border-radius: 0;
   }
+}
 
+@media (max-width: 900px) {
   body.dashboard #content {
     grid-template-columns: 1fr;
   }
