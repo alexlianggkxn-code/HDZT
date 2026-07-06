@@ -802,6 +802,7 @@ body.hudong-console #header {
   background: linear-gradient(135deg, #0e3f48 0%, #17636d 100%);
   box-shadow: 0 18px 48px rgba(14, 63, 72, 0.18);
   display: flex !important;
+  flex-direction: row !important;
   justify-content: space-between;
   min-height: 74px;
   padding: 0 44px;
