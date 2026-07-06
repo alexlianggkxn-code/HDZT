@@ -5,8 +5,7 @@ services:
     plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
-    preDeployCommand: python manage.py migrate && python manage.py seed_search_documents
-    startCommand: gunicorn config.wsgi:application
+    startCommand: python manage.py migrate && python manage.py seed_search_documents && gunicorn config.wsgi:application
     healthCheckPath: /api/health/
     envVars:
       - key: DJANGO_DEBUG
