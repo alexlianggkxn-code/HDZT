@@ -4,6 +4,7 @@ env/
 .env/
 .cache/
 .tools/
+.superpowers/
 __pycache__/
 *.py[cod]
 db.sqlite3

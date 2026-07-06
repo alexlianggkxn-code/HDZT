@@ -42,6 +42,9 @@ ALLOWED_HOSTS=你的后端域名.onrender.com
 CORS_ALLOWED_ORIGINS=https://你的前端域名.onrender.com
 CSRF_TRUSTED_ORIGINS=https://你的后端域名.onrender.com
 DATABASE_URL=Supabase PostgreSQL 连接字符串
+DJANGO_SUPERUSER_USERNAME=线上后台用户名
+DJANGO_SUPERUSER_PASSWORD=线上后台密码
+DJANGO_SUPERUSER_EMAIL=可选邮箱
 ```
 
 后端上线后先访问：

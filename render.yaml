@@ -5,7 +5,7 @@ services:
     plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
-    startCommand: python manage.py migrate && python manage.py seed_search_documents && gunicorn config.wsgi:application
+    startCommand: python manage.py migrate && python manage.py seed_search_documents && python manage.py ensure_admin_user && gunicorn config.wsgi:application
     healthCheckPath: /api/health/
     envVars:
       - key: DJANGO_DEBUG
@@ -21,6 +21,12 @@ services:
       - key: CSRF_TRUSTED_ORIGINS
         sync: false
       - key: DATABASE_URL
+        sync: false
+      - key: DJANGO_SUPERUSER_USERNAME
+        sync: false
+      - key: DJANGO_SUPERUSER_PASSWORD
+        sync: false
+      - key: DJANGO_SUPERUSER_EMAIL
         sync: false
 
   - type: web
