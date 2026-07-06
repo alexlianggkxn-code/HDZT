@@ -9,9 +9,9 @@ const businessAreas = [
     summary:
       "围绕脑电相关记录、任务日志、语音视频资料和机器人训练过程，建立可追溯的数据整理与智能体流程，为后续标注、训练和内容生成提供稳定基础。",
     services: [
-      "梳理脑电相关实验记录、任务节点和样本来源",
+      "梳理实验记录、任务节点、样本来源和资料版本",
       "建立语音、视频、动作、场景说明等多模态资料字段",
-      "设计智能体任务流程，包括资料入库、标签建议、复盘记录和版本维护",
+      "设计资料入库、标签建议、复盘记录和版本维护流程",
     ],
     outcomes: ["数据结构表", "任务流程说明", "样本复盘记录"],
   },
@@ -60,54 +60,29 @@ const scenarios = [
 ];
 
 const deliverables = [
-  {
-    title: "数据字段与标注规范",
-    description:
-      "明确样本编号、场景、动作阶段、语音指令、标签、质量状态和复盘结论等字段，便于进入数据库或后台维护。",
-  },
-  {
-    title: "机器人训练样例集",
-    description:
-      "按训练任务整理视频片段、动作说明、语音指令和标签样例，帮助研发团队快速对齐样本口径。",
-  },
-  {
-    title: "陪伴内容脚本与规则",
-    description:
-      "沉淀场景化话术、互动边界、语气规则和反馈处理方式，用于陪伴机器人演示和后续内容迭代。",
-  },
-  {
-    title: "复盘与质量检查记录",
-    description:
-      "记录样本问题、修订建议、验收状态和后续处理人，确保合作成果可检查、可追踪、可交接。",
-  },
-];
-
-const capabilitySummary = [
-  "真实训练资料整理",
-  "多模态标签流程",
-  "陪伴内容体系维护",
+  "数据字段与标注规范",
+  "机器人训练视频/动作标注样例",
+  "场景化陪伴内容脚本",
+  "数据复盘和质量检查记录",
+  "可维护的后台内容与咨询记录",
 ];
 
 const roadmap = [
   {
     title: "需求梳理",
-    description:
-      "确认机器人类型、训练任务、已有资料、试点场景和预期交付形式，先把合作范围定清楚。",
+    description: "确认机器人类型、训练任务、已有资料、试点场景和预期交付形式。",
   },
   {
     title: "资料整理",
-    description:
-      "汇总视频、语音、动作、记录表和场景说明，建立统一命名、字段和存档方式。",
+    description: "汇总视频、语音、动作、记录表和场景说明，建立统一命名、字段和存档方式。",
   },
   {
     title: "标签与内容建设",
-    description:
-      "根据训练目标或陪伴场景补充动态标签、脚本内容、交互规则和质量状态。",
+    description: "根据训练目标或陪伴场景补充动态标签、脚本内容、交互规则和质量状态。",
   },
   {
     title: "复盘交付",
-    description:
-      "输出可检查的样例、规范和记录，为后续数据库接入、后台维护和业务演示做准备。",
+    description: "输出可检查的样例、规范和记录，为后续数据库接入、后台维护和业务演示做准备。",
   },
 ];
 
@@ -144,8 +119,7 @@ async function handleContactSubmit() {
       message: "",
     };
   } catch {
-    contactError.value =
-      "提交暂时不可用，请稍后再试，或通过公开联系方式联系沪东智体。";
+    contactError.value = "提交暂时不可用，请稍后再试，或通过公开联系方式联系沪东智体。";
   } finally {
     isSubmittingContact.value = false;
   }
@@ -155,7 +129,7 @@ async function handleContactSubmit() {
 <template>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="沪东智体首页">
-      <span class="brand-mark">沪</span>
+      <img class="brand-logo" src="/images/hudongzhiti-logo.png" alt="沪东智体 logo" />
       <span>沪东智体</span>
     </a>
     <nav aria-label="主导航">
@@ -169,16 +143,22 @@ async function handleContactSubmit() {
   <main id="top">
     <section class="hero section-shell">
       <div class="hero-copy">
-        <h1>沪东智体人工智能科技（上海）有限公司</h1>
+        <div class="hero-brand">
+          <img src="/images/hudongzhiti-logo.png" alt="" />
+          <span>沪东智体人工智能科技（上海）有限公司</span>
+        </div>
+        <h1>面向机器人训练与陪伴内容的数据整理服务</h1>
         <p>
-          面向机器人训练、数据标注和陪伴内容建设，沪东智体把真实研发场景中的语音、视频、动作、记录表和互动反馈整理成可复盘、可维护、可迭代的数据与内容资产。
+          沪东智体把真实研发场景中的语音、视频、动作、记录表和互动反馈，整理成可复盘、可维护、可迭代的数据与内容资产。
         </p>
         <div class="hero-actions">
           <a class="primary-link" href="#business">查看业务方向</a>
           <a class="secondary-link" href="#contact">提交合作咨询</a>
         </div>
         <div class="capability-strip" aria-label="核心能力摘要">
-          <span v-for="item in capabilitySummary" :key="item">{{ item }}</span>
+          <span>真实训练资料整理</span>
+          <span>多模态标签流程</span>
+          <span>陪伴内容体系维护</span>
         </div>
       </div>
       <div class="hero-visual" aria-label="机器人训练数据标注与研发工作位场景">
@@ -254,12 +234,9 @@ async function handleContactSubmit() {
         </p>
       </div>
       <div class="deliverables-layout">
-        <div class="deliverable-list">
-          <article v-for="item in deliverables" :key="item.title">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-          </article>
-        </div>
+        <ul class="deliverable-list">
+          <li v-for="item in deliverables" :key="item">{{ item }}</li>
+        </ul>
         <div class="process-panel">
           <h3>合作流程</h3>
           <ol>
@@ -347,6 +324,10 @@ async function handleContactSubmit() {
   </main>
 
   <footer class="site-footer">
-    <strong>沪东智体人工智能科技（上海）有限公司</strong>
+    <div class="footer-brand">
+      <img src="/images/hudongzhiti-logo.png" alt="" />
+      <strong>沪东智体人工智能科技（上海）有限公司</strong>
+    </div>
+    <span>面向机器人训练、数据标注与陪伴内容建设</span>
   </footer>
 </template>

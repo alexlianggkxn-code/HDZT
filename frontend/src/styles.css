@@ -43,15 +43,12 @@ a {
   gap: 10px;
 }
 
-.brand-mark {
-  align-items: center;
-  background: #0f766e;
-  border-radius: 8px;
-  color: white;
-  display: inline-flex;
-  height: 36px;
-  justify-content: center;
-  width: 36px;
+.brand-logo {
+  border-radius: 10px;
+  display: block;
+  height: 40px;
+  object-fit: contain;
+  width: 40px;
 }
 
 nav {
@@ -78,6 +75,25 @@ nav a {
   min-height: 560px;
   padding-bottom: 48px;
   padding-top: 44px;
+}
+
+.hero-brand {
+  align-items: center;
+  color: #0f766e;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 800;
+  gap: 12px;
+  letter-spacing: 0;
+  margin-bottom: 18px;
+}
+
+.hero-brand img {
+  border-radius: 14px;
+  display: block;
+  height: 54px;
+  object-fit: contain;
+  width: 54px;
 }
 
 .hero h1 {
@@ -511,6 +527,20 @@ nav a {
   padding: 28px 5vw;
 }
 
+.footer-brand {
+  align-items: center;
+  display: inline-flex;
+  gap: 12px;
+}
+
+.footer-brand img {
+  border-radius: 10px;
+  display: block;
+  height: 42px;
+  object-fit: contain;
+  width: 42px;
+}
+
 .site-footer span {
   color: #c9d4db;
 }
@@ -522,6 +552,11 @@ nav a {
     gap: 14px;
     padding: 16px 24px;
     position: static;
+  }
+
+  .brand-logo {
+    height: 36px;
+    width: 36px;
   }
 
   nav {
@@ -548,6 +583,11 @@ nav a {
   .hero {
     min-height: auto;
     padding-top: 44px;
+  }
+
+  .hero-brand {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .hero-visual {
