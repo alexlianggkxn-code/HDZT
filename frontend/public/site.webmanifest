@@ -1,0 +1,10 @@
+{
+  "name": "沪东智体人工智能科技（上海）有限公司",
+  "short_name": "沪东智体",
+  "description": "脑电相关数据处理、机器人训练数据与陪伴机器人内容建设官网。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7fafc",
+  "theme_color": "#0f766e",
+  "lang": "zh-CN"
+}
