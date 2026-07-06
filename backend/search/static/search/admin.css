@@ -798,25 +798,56 @@ body.hudong-console {
 }
 
 body.hudong-console #header {
+  align-items: center !important;
   background: linear-gradient(135deg, #0e3f48 0%, #17636d 100%);
   box-shadow: 0 18px 48px rgba(14, 63, 72, 0.18);
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   min-height: 74px;
   padding: 0 44px;
   text-align: left;
 }
 
+body.hudong-console #branding {
+  margin: 0 !important;
+}
+
 body.hudong-console #branding h1,
 body.hudong-console #branding h1 a:link,
 body.hudong-console #branding h1 a:visited {
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 21px;
   font-weight: 800;
 }
 
 body.hudong-console #user-tools {
-  margin: 0;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  line-height: 1.4;
+  margin: 0 !important;
+}
+
+body.hudong-console #user-tools a,
+body.hudong-console #logout-form button {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body.hudong-console .theme-toggle {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+body.hudong-console .theme-toggle svg {
+  color: #ffffff !important;
+  height: 18px;
+  width: 18px;
 }
 
 body.hudong-console .main {
