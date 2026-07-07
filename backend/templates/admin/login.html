@@ -1,0 +1,69 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block title %}{% if form.errors %}{% translate "Error:" %} {% endif %}{{ block.super }}{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "admin/css/login.css" %}">
+{{ form.media }}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login hudong-login{% endblock %}
+{% block usertools %}{% endblock %}
+{% block nav-global %}{% endblock %}
+{% block nav-sidebar %}{% endblock %}
+{% block content_title %}{% endblock %}
+{% block nav-breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="login-panel-copy">
+  <p>Hudong Zhiti Admin</p>
+  <h2>后台内容维护入口</h2>
+  <span>管理官网内容、合作咨询线索、后台用户和权限配置。</span>
+</div>
+
+<div id="content-main" class="login-form-card">
+  {% if form.errors and not form.non_field_errors %}
+    <p class="errornote">请检查下方输入内容。</p>
+  {% endif %}
+
+  {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+      <p class="errornote">{{ error }}</p>
+    {% endfor %}
+  {% endif %}
+
+  {% if user.is_authenticated %}
+    <p class="errornote">
+      当前账号 {{ username }} 没有访问权限，请使用有权限的后台账号登录。
+    </p>
+  {% endif %}
+
+  <form action="{{ app_path }}" method="post" id="login-form">
+    {% csrf_token %}
+    <div class="form-row">
+      {{ form.username.errors }}
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+    <div class="form-row">
+      {{ form.password.errors }}
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      <input type="hidden" name="next" value="{{ next }}">
+    </div>
+    <div class="form-row captcha-row">
+      {{ form.captcha.errors }}
+      {{ form.captcha.label_tag }}
+      <div class="captcha-control">
+        {{ form.captcha }}
+        <strong aria-label="当前验证码">{{ request.session.admin_login_captcha }}</strong>
+      </div>
+    </div>
+    <div class="submit-row">
+      <input type="submit" value="登录后台">
+    </div>
+  </form>
+</div>
+{% endblock %}

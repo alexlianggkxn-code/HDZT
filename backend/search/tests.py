@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
@@ -38,6 +39,33 @@ class HealthApiTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["status"], "ok")
         self.assertEqual(response.json()["service"], "hudongzhiti-api")
+
+
+class AdminLoginCaptchaTests(TestCase):
+    def test_admin_login_page_includes_captcha(self):
+        response = self.client.get(reverse("admin:login"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id="id_captcha"')
+        self.assertIn("admin_login_captcha", self.client.session)
+
+    def test_admin_login_accepts_matching_captcha(self):
+        User = get_user_model()
+        User.objects.create_superuser(username="admin", password="admin", email="")
+        self.client.get(reverse("admin:login"))
+        captcha = self.client.session["admin_login_captcha"]
+
+        response = self.client.post(
+            reverse("admin:login"),
+            {
+                "username": "admin",
+                "password": "admin",
+                "captcha": captcha,
+                "next": reverse("admin:index"),
+            },
+        )
+
+        self.assertEqual(response.status_code, 302)
 
 
 class SearchApiTests(TestCase):

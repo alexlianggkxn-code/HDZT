@@ -589,59 +589,121 @@ textarea {
 
 body.login {
   background:
-    radial-gradient(circle at 20% 10%, rgba(15, 118, 110, 0.18), transparent 32%),
-    linear-gradient(135deg, #eef7f6 0%, #f8fbfc 48%, #eef4f7 100%);
+    radial-gradient(circle at 12% 12%, rgba(15, 118, 110, 0.16), transparent 30%),
+    linear-gradient(135deg, #eef7f6 0%, #f8fbfc 45%, #eaf1f5 100%);
 }
 
 .login #container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
   min-height: 100vh;
-  padding: 32px 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .login #header {
-  background: linear-gradient(135deg, #123842, #1c6370);
-  border-radius: 12px 12px 0 0;
+  align-items: flex-start;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.96), rgba(22, 78, 99, 0.98)),
+    #123842;
+  border-radius: 0;
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
   justify-content: center;
-  min-height: 94px;
-  padding: 0 28px;
+  min-height: 100vh;
+  padding: 8vw;
+  position: relative;
+}
+
+.login #header::after {
+  color: rgba(255, 255, 255, 0.74);
+  content: "面向官网内容、合作咨询和后台权限的统一管理入口";
+  display: block;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 18px;
+  max-width: 520px;
 }
 
 .login #branding h1,
 .login #branding h1 a:link,
 .login #branding h1 a:visited {
   color: #ffffff;
-  font-size: 26px;
-  line-height: 1.2;
-  text-align: center;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  max-width: 560px;
+  text-align: left;
 }
 
 .login #branding h1::after {
   color: rgba(255, 255, 255, 0.78);
-  content: "内容与咨询管理";
+  content: "Hudong Zhiti Admin Console";
   display: block;
-  font-size: 13px;
-  font-weight: 500;
-  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-top: 18px;
+  text-transform: uppercase;
 }
 
 .login #content {
-  background: #ffffff;
-  border: 1px solid rgba(23, 32, 42, 0.08);
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 30px 80px rgba(23, 32, 42, 0.14);
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.9);
+  border: 0;
+  border-radius: 0;
+  box-shadow: -24px 0 80px rgba(23, 32, 42, 0.08);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  justify-content: center;
   margin: 0;
-  max-width: 440px;
-  padding: 32px !important;
-  width: min(440px, 100%);
+  max-width: none;
+  padding: 64px !important;
+  width: 100%;
 }
 
 .login #content-main {
   width: 100%;
+}
+
+.login-panel-copy {
+  margin-bottom: 32px;
+}
+
+.login-panel-copy p {
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.login-panel-copy h2 {
+  color: #17202a;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.login-panel-copy span {
+  color: #5f6f7c;
+  display: block;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.login-form-card {
+  background: #ffffff;
+  border: 1px solid rgba(23, 32, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(23, 32, 42, 0.1);
+  padding: 30px;
 }
 
 .login .form-row {
@@ -659,10 +721,10 @@ body.login {
 
 .login .form-row input {
   border: 1px solid #d6e2e6;
-  border-radius: 8px;
+  border-radius: 10px;
   box-sizing: border-box;
   font-size: 15px;
-  min-height: 46px;
+  min-height: 48px;
   padding: 0 14px;
   width: 100%;
 }
@@ -684,11 +746,11 @@ body.login {
 .login .submit-row input[type="submit"] {
   background: #0f766e;
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
-  min-height: 46px;
+  min-height: 48px;
   padding: 13px 20px;
   width: 100%;
 }
@@ -709,6 +771,30 @@ body.login {
 
 .login .password-reset-link {
   text-align: center;
+}
+
+.captcha-control {
+  align-items: stretch;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 112px;
+}
+
+.captcha-control strong {
+  align-items: center;
+  background:
+    repeating-linear-gradient(135deg, rgba(15, 118, 110, 0.08) 0 8px, rgba(22, 78, 99, 0.08) 8px 16px),
+    #eef8f7;
+  border: 1px solid #c8e1df;
+  border-radius: 10px;
+  color: #0f766e;
+  display: inline-flex;
+  font-size: 20px;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.16em;
+  min-height: 48px;
+  padding-left: 4px;
 }
 
 @media (max-width: 1024px) {
@@ -852,13 +938,14 @@ body.hudong-console .theme-toggle svg {
 }
 
 body.hudong-console .main {
-  padding: 34px 28px 72px;
+  padding: 0 0 72px;
 }
 
 body.hudong-console #content {
   display: block;
   margin: 0 auto;
-  max-width: 1220px;
+  max-width: none;
+  width: 100%;
 }
 
 .console-hero {
@@ -866,15 +953,15 @@ body.hudong-console #content {
   background:
     linear-gradient(135deg, rgba(15, 118, 110, 0.96), rgba(22, 78, 99, 0.96)),
     #0f766e;
-  border-radius: 18px;
+  border-radius: 0;
   box-shadow: 0 28px 80px rgba(23, 32, 42, 0.16);
   color: #ffffff;
   display: grid;
   gap: 32px;
   grid-template-columns: minmax(0, 1fr) 280px;
-  margin-bottom: 22px;
+  margin-bottom: 0;
   overflow: hidden;
-  padding: 34px;
+  padding: 48px 6vw;
 }
 
 .console-kicker {
@@ -930,7 +1017,7 @@ body.hudong-console #content {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-bottom: 22px;
+  margin: 28px 3vw 24px;
 }
 
 .console-metrics article,
@@ -973,6 +1060,7 @@ body.hudong-console #content {
   display: grid;
   gap: 22px;
   grid-template-columns: minmax(0, 1fr) 340px;
+  margin: 0 3vw;
 }
 
 .console-panel {
@@ -1133,6 +1221,28 @@ body.hudong-console #content {
 }
 
 @media (max-width: 820px) {
+  .login #container {
+    grid-template-columns: 1fr;
+  }
+
+  .login #header {
+    min-height: 38vh;
+    padding: 44px 24px;
+  }
+
+  .login #content {
+    grid-column: 1;
+    padding: 28px 18px 44px !important;
+  }
+
+  .login-form-card {
+    padding: 22px;
+  }
+
+  .captcha-control {
+    grid-template-columns: 1fr;
+  }
+
   body.hudong-console #header {
     align-items: flex-start;
     flex-direction: column;

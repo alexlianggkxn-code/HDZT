@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.utils import timezone
 
+from .forms import CaptchaAdminAuthenticationForm
 from .models import ContactLead, SearchDocument
 
 admin.site.site_header = "沪东智体后台管理"
 admin.site.site_title = "沪东智体后台"
 admin.site.index_title = "内容与咨询管理"
+admin.site.login_form = CaptchaAdminAuthenticationForm
 
 
 @admin.register(SearchDocument)
