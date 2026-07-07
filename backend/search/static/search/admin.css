@@ -597,9 +597,11 @@ body.login {
   align-items: stretch;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
+  margin: 0 !important;
+  max-width: none !important;
   min-height: 100vh;
   padding: 0;
-  width: 100%;
+  width: 100vw !important;
 }
 
 .login #header {
@@ -939,6 +941,11 @@ body.hudong-console .theme-toggle svg {
 
 body.hudong-console .main {
   padding: 0 0 72px;
+}
+
+body.hudong-console #main {
+  max-width: none;
+  width: 100%;
 }
 
 body.hudong-console #content {
