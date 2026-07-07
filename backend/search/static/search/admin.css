@@ -589,14 +589,13 @@ textarea {
 
 body.login {
   background:
-    radial-gradient(circle at 12% 12%, rgba(15, 118, 110, 0.16), transparent 30%),
-    linear-gradient(135deg, #eef7f6 0%, #f8fbfc 45%, #eaf1f5 100%);
+    radial-gradient(circle at 10% 16%, rgba(15, 118, 110, 0.12), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(22, 78, 99, 0.09), transparent 28%),
+    linear-gradient(135deg, #f3f8f7 0%, #fbfcfd 48%, #eef4f6 100%);
 }
 
 .login #container {
-  align-items: stretch;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
+  display: block;
   margin: 0 !important;
   max-width: none !important;
   min-height: 100vh;
@@ -605,67 +604,63 @@ body.login {
 }
 
 .login #header {
-  align-items: flex-start;
+  align-items: center;
   background:
     linear-gradient(135deg, rgba(15, 118, 110, 0.96), rgba(22, 78, 99, 0.98)),
     #123842;
   border-radius: 0;
-  box-shadow: none;
+  box-shadow: 0 12px 34px rgba(23, 32, 42, 0.12);
   display: flex;
-  flex-direction: column;
-  grid-column: 1;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 8vw;
+  justify-content: space-between;
+  min-height: 82px;
+  padding: 0 6vw;
   position: relative;
+  width: 100%;
 }
 
 .login #header::after {
   color: rgba(255, 255, 255, 0.74);
   content: "面向官网内容、合作咨询和后台权限的统一管理入口";
-  display: block;
-  font-size: 18px;
-  line-height: 1.8;
-  margin-top: 18px;
-  max-width: 520px;
+  display: none;
 }
 
 .login #branding h1,
 .login #branding h1 a:link,
 .login #branding h1 a:visited {
   color: #ffffff;
-  font-size: clamp(34px, 5vw, 56px);
+  font-size: 22px;
   font-weight: 900;
   line-height: 1.1;
-  max-width: 560px;
   text-align: left;
 }
 
 .login #branding h1::after {
   color: rgba(255, 255, 255, 0.78);
   content: "Hudong Zhiti Admin Console";
-  display: block;
-  font-size: 15px;
+  display: inline-block;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  margin-top: 18px;
+  letter-spacing: 0.1em;
+  margin-left: 16px;
   text-transform: uppercase;
+  vertical-align: 3px;
 }
 
 .login #content {
-  align-items: stretch;
-  background: rgba(255, 255, 255, 0.9);
+  align-items: center;
+  background: transparent;
   border: 0;
   border-radius: 0;
-  box-shadow: -24px 0 80px rgba(23, 32, 42, 0.08);
+  box-shadow: none;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  grid-column: 2;
+  display: grid;
+  gap: clamp(36px, 6vw, 82px);
+  grid-template-columns: minmax(280px, 0.9fr) minmax(390px, 460px);
   justify-content: center;
-  margin: 0;
-  max-width: none;
-  padding: 64px !important;
+  margin: 0 auto;
+  max-width: 1120px;
+  min-height: calc(100vh - 82px);
+  padding: 56px 32px 72px !important;
   width: 100%;
 }
 
@@ -674,38 +669,40 @@ body.login {
 }
 
 .login-panel-copy {
-  margin-bottom: 32px;
+  margin-bottom: 0;
+  max-width: 480px;
 }
 
 .login-panel-copy p {
   color: #0f766e;
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: 0.12em;
-  margin: 0 0 10px;
+  letter-spacing: 0.14em;
+  margin: 0 0 14px;
   text-transform: uppercase;
 }
 
 .login-panel-copy h2 {
   color: #17202a;
-  font-size: 30px;
-  line-height: 1.2;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.12;
   margin: 0;
 }
 
 .login-panel-copy span {
   color: #5f6f7c;
   display: block;
+  font-size: 16px;
   line-height: 1.8;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 
 .login-form-card {
-  background: #ffffff;
-  border: 1px solid rgba(23, 32, 42, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 24px 70px rgba(23, 32, 42, 0.1);
-  padding: 30px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(23, 32, 42, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(23, 32, 42, 0.12);
+  padding: 34px;
 }
 
 .login .form-row {
@@ -1228,17 +1225,24 @@ body.hudong-console #content {
 }
 
 @media (max-width: 820px) {
-  .login #container {
-    grid-template-columns: 1fr;
+  .login #header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    min-height: 92px;
+    padding: 18px 22px;
   }
 
-  .login #header {
-    min-height: 38vh;
-    padding: 44px 24px;
+  .login #branding h1::after {
+    display: block;
+    margin: 7px 0 0;
   }
 
   .login #content {
-    grid-column: 1;
+    gap: 26px;
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - 92px);
     padding: 28px 18px 44px !important;
   }
 
