@@ -1,0 +1,12 @@
+[build]
+  base = "frontend"
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  VITE_API_BASE_URL = "https://hudongzhiti-api.onrender.com"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

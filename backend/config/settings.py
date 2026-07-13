@@ -91,14 +91,21 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOWED_ORIGINS = [
-    origin.strip()
-    for origin in os.getenv(
-        "CORS_ALLOWED_ORIGINS",
-        "http://127.0.0.1:5173,http://localhost:5173",
-    ).split(",")
-    if origin.strip()
-]
+DEFAULT_CORS_ALLOWED_ORIGINS = {
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+    "https://hudongzhiti-web.onrender.com",
+    "https://hudongzhiti.netlify.app",
+}
+
+CORS_ALLOWED_ORIGINS = sorted(
+    DEFAULT_CORS_ALLOWED_ORIGINS
+    | {
+        origin.strip()
+        for origin in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+        if origin.strip()
+    }
+)
 
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
